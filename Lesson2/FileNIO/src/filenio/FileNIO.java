@@ -1,21 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package filenio;
 
-/**
- *
- * @author krisztian
- */
-public class FileNIO {
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-    /**
-     * @param args the command line arguments
-     */
+public class FileNIO {
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        try {
+            Configuration conf = Configuration.getInstance();
+            System.out.println("name: " + conf.getName());
+            System.out.println("IP address: " + conf.getIpAddress());
+            System.out.println("port: " + conf.getPort());
+        } catch (ConfigException ex) {
+            Logger.getLogger(FileNIO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
